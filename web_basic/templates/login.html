@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login</title>
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  {% if error == 1 %}
+    <script>alert("Login Failed...");</script>
+  {% elif error == 2 %}
+    <script>alert("Error");</script>
+  {% endif %}
+  <script>
+    function get_cookie(name) {
+      var value = document.cookie.match('(^|;) ?' + name + '=([^;]*)(;|$)');
+      return value ? unescape(value[2]) : null;
+    };
+
+    if(get_cookie("ID")){
+      alert("Already logged in...");
+      location.href="/"
+    }
+    function send_data(){
+      $.ajax({
+        type: "POST",
+        dataType:"JSON",
+        url: document.location.href.split("/").slice(0,3).join("/")+"/login",
+        data:{"id":$("#login_id").val(),"pw":$("#login_pw").val()},
+        success: function() {location.href=document.location.href.split("/").slice(0,3).join("/")}
+      });
+    }
+  </script>
+</head>
+<body>
+  <form id="login_form">
+    <table>
+      <tr>
+        <td>ID</td>
+        <td><input id="login_id" name="id" type="text"></td>
+      </tr>
+      <tr>
+        <td>PW</td>
+        <td><input id="login_pw" name="pw" type="password"></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td><button onclick="send_data()">전송</button></td>
+      </tr>
+    </table>
+  </form>
+</body>
+</html>

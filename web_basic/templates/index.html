@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>INDEX PAGE</title>
+
+    {% if logout==True %}
+        <script>alert("logged out");location.href="/"</script>
+    {% endif %}
+
+  <script>
+    function get_cookie(name) {
+      var value = document.cookie.match('(^|;) ?' + name + '=([^;]*)(;|$)');
+      return value ? unescape(value[2]) : null;
+    };
+  </script>
+</head>
+<body>
+    <p><a href="/login">LOGIN PAGE</a></p>
+    <script>
+        if(get_cookie("ID")!=null){
+            var logout_p = document.createElement("p");
+            var logout_btn = document.createElement("a");
+            logout_btn.href="/logout";
+            logout_btn.text="LOG OUT";
+            document.body.appendChild(logout_btn);
+        }
+    </script>
+</body>
+</html>
