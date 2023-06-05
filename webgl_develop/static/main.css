@@ -1,0 +1,13 @@
+h1{
+    text-align: center;
+}
+#webgl{
+    border: black 1px solid;
+}
+#canvas_controller{
+    text-align: center;
+}
+#canvas_container{
+    width: 100%;
+    text-align: center;
+}
