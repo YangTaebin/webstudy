@@ -3,7 +3,7 @@ WebStudy Repos
 ## 1. web_basic
 About basic db connection code and flask application.
 
-## 2. webgl_develop
+## 2. webgl_develop(현재 .git 파일 이슈로 접속 불가)
 WebGL을 개발하는 repository로 3d renderer를 만드는 것을 목표로 함.
 
 ## 3. webhack
